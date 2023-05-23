@@ -8,8 +8,7 @@
     name: "CardsContainer",
     data() {
         return {
-            store,
-            card: []
+            store
         }
     },
     methods: {
@@ -18,22 +17,10 @@
         }
     },
     mounted() {
-        // console.log("Loading da store: ", store.loading);
 
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-            .then(r => {
-                console.log(r.data);
-
-                store.card = r.data.data;
-
-                console.log("Store card: ", store.card);
-
-                const card0 = store.card[0];
-
-                console.log(card0.name);
-            })
-
-
+            .then(r => { store.card = r.data.data })
+            
     }
     }
 
@@ -72,7 +59,7 @@
 
             .card-name{
                 font-weight: bold;
-                height: 3rem;
+                height: 4rem;
             }
 
             img{
