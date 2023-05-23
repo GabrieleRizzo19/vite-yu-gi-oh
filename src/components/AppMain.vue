@@ -15,7 +15,6 @@
 
     <main>
         <div class="main-wrapper container">
-            <h1>MAIN</h1>
             <CardsContainer />
         </div>
     </main>
@@ -25,10 +24,10 @@
 <style lang="scss" scoped>
 
     main{
-        background-color: green;
+        background-color: goldenrod;
 
         .main-wrapper{
-            background-color: grey;
+            padding: 2rem 0;
         }
     }
 

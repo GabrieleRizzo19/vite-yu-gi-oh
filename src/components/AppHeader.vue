@@ -9,13 +9,8 @@
 <template>
 
     <header>
-        <div class="header-wrapper container d-flex justify-content-between">
-            <div>
-                LEFT
-            </div>
-            <div>
-                RIGHT
-            </div>
+        <div class="header-wrapper container">
+            <h1>YU-GI-OH API</h1>
         </div>
     </header>
 
@@ -24,11 +19,9 @@
 <style lang="scss" scoped>
 
     header{
-        background-color: red;
 
         .header-wrapper{
-            background-color: blue;
-            color: white;
+            text-align: center;
         }
     }
 
