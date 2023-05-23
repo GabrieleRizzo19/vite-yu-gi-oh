@@ -28,7 +28,7 @@
         background-color: green;
 
         .main-wrapper{
-
+            background-color: grey;
         }
     }
 
