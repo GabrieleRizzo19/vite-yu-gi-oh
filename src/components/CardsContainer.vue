@@ -18,8 +18,11 @@
     },
     mounted() {
 
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-            .then(r => { store.card = r.data.data })
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=500')
+            .then(result => { store.card = result.data.data })
+            .catch(err => {
+                console.error("PROBLEMA CON AXIOS")
+            })
             
     }
     }
