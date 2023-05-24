@@ -14,15 +14,40 @@
     methods: {
         getCardImageUrl(card){
             return card.card_images[0].image_url;
+        },
+        allCardsCall(){
+
+            axios.get(this.store.allCardsApiUrl)
+            .then(result => { store.card = result.data.data })
+            .catch(err => {
+                console.error("PROBLEMA CON AXIOS", err)
+            })
+
+        },
+        archetypeCall(){
+            axios.get(this.store.archetypeApiUrl)
+            .then(result => {
+                
+                console.log("log archetype", result.data.slice(0,50))
+
+                result.data.slice(0,100).forEach(element => {
+                    this.store.archetypeArray.push(element.archetype_name);
+                });
+
+                console.log("Archetype Array: ", this.store.archetypeArray);
+                // store.archetypeArray = result.data.data
+
+            })
+            .catch(err => {
+                console.error("PROBLEMA CON AXIOS", err)
+            })
+
         }
     },
     mounted() {
 
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=500')
-            .then(result => { store.card = result.data.data })
-            .catch(err => {
-                console.error("PROBLEMA CON AXIOS")
-            })
+        this.allCardsCall();
+        this.archetypeCall();
             
     }
     }
