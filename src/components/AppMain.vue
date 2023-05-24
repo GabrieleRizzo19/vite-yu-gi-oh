@@ -1,11 +1,13 @@
 <script>
 
     import CardsContainer from './CardsContainer.vue';
+    import SelectArchetype from './SelectArchetype.vue';
 
     export default {
         name: "AppMain",
         components:{
-            CardsContainer
+            CardsContainer,
+            SelectArchetype
         }
     }
 
@@ -15,6 +17,7 @@
 
     <main>
         <div class="main-wrapper container">
+            <SelectArchetype />
             <CardsContainer />
         </div>
     </main>
