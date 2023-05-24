@@ -25,23 +25,21 @@
 
         },
         archetypeCall(){
-            axios.get(this.store.archetypeApiUrl)
+            axios.get(this.store.allArchetypeApiUrl)
             .then(result => {
-                
-                console.log("log archetype", result.data.slice(0,50))
-
+            
                 result.data.slice(0,100).forEach(element => {
                     this.store.archetypeArray.push(element.archetype_name);
                 });
-
-                console.log("Archetype Array: ", this.store.archetypeArray);
-                // store.archetypeArray = result.data.data
 
             })
             .catch(err => {
                 console.error("PROBLEMA CON AXIOS", err)
             })
 
+        },
+        getCardArrayLength(){
+            return this.store.card.length;
         }
     },
     mounted() {
@@ -55,6 +53,10 @@
 </script>
 
 <template>
+
+<div class="counter">
+            <span>Ci sono {{ getCardArrayLength() }} carte</span>
+        </div>
 
     <div class="cards-container d-flex flex-wrap">
 
